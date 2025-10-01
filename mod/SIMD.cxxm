@@ -1,0 +1,34 @@
+export module SIMD;
+
+export namespace simd {
+
+#ifdef __x86_64__
+#ifdef __AVX512F__
+inline constexpr long REGISTERS = 32;
+inline constexpr long VECTORWIDTH = 64;
+#else // not __AVX512F__
+inline constexpr long REGISTERS = 16;
+#ifdef __AVX__
+inline constexpr long VECTORWIDTH = 32;
+#else  // no AVX
+inline constexpr long VECTORWIDTH = 16;
+#endif // no AVX
+#endif
+#else  // not __x86_64__
+inline constexpr long REGISTERS = 32;
+inline constexpr long VECTORWIDTH = 16;
+#endif // __x86_64__
+
+template <typename T, long W = VECTORWIDTH / sizeof(T)>
+using Vec = T [[clang::ext_vector_type(W)]];
+
+template <typename T, long W = VECTORWIDTH / sizeof(T)>
+constexpr auto load(const T *p) -> Vec<T, W> {
+  return *reinterpret_cast<Vec<T, W> *>(p);
+}
+template <typename T, long W>
+constexpr void store(const T *p, Vec<T, W> v) {
+  *reinterpret_cast<Vec<T, W> *>(p) = v;
+}
+
+} // namespace simd

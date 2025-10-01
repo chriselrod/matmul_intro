@@ -1,0 +1,21 @@
+module;
+
+#include "LoopMacros.hxx"
+
+export module MatMul;
+
+import SIMD;
+
+export void matmul(double *__restrict__ C, double *__restrict__ A,
+                   double *__restrict__ B, long M, long N, long K) {
+  for (long m = 0; m < M; ++m) {
+    for (long n = 0; n < N; ++n) {
+      C[m * N + n] = 0.0;
+    }
+    for (long k = 0; k < K; ++k) {
+      for (long n = 0; n < N; ++n) {
+        C[m * N + n] += A[m * K + k] * B[k * N + n];
+      }
+    }
+  }
+}
