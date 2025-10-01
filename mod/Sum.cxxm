@@ -1,0 +1,14 @@
+module;
+
+#include "LoopMacros.hxx"
+
+export module Sum;
+import SIMD;
+import std;
+
+export auto sum_vector(const std::vector<float> &vec) {
+  float sum = 0.0;
+  for (auto x : vec)
+    sum += x;
+  return sum;
+}

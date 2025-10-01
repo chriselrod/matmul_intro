@@ -16,12 +16,10 @@ void naive_matmul(double *__restrict__ C, double *__restrict__ A,
   }
 }
 
-void initialize_matrix(std::vector<double> &matrix, long size,
-                       std::mt19937 &gen) {
+void initialize_matrix(std::vector<double> &matrix, std::mt19937 &gen) {
   std::uniform_real_distribution<double> dist(-1.0, 1.0);
-  for (long i = 0; i < size; ++i) {
-    matrix[i] = dist(gen);
-  }
+  for (auto &x : matrix)
+    x = dist(gen);
 }
 
 int main() {
@@ -29,24 +27,24 @@ int main() {
 
   // Small matrices for initial comparison
   {
-    constexpr long M = 48, N = 48, K = 48;
+    constexpr long M = 72, N = 72, K = 72;
     std::vector<double> A(M * K), B(K * N), C(M * N);
 
-    initialize_matrix(A, M * K, gen);
-    initialize_matrix(B, K * N, gen);
+    initialize_matrix(A, gen);
+    initialize_matrix(B, gen);
 
     Bench bench;
-    bench.title("Matrix Multiplication 48x48x48")
+    bench.title("Matrix Multiplication 72x72x72")
         .unit("matrix")
         .warmup(10)
         .epochIterations(100);
 
-    bench.run("naive_matmul", [&] {
+    bench.minEpochIterations(1000).run("naive_matmul", [&] {
       naive_matmul(C.data(), A.data(), B.data(), M, N, K);
       doNotOptimizeAway(C);
     });
 
-    bench.run("optimized_matmul", [&] {
+    bench.minEpochIterations(1000).run("optimized_matmul", [&] {
       matmul(C.data(), A.data(), B.data(), M, N, K);
       doNotOptimizeAway(C);
     });
@@ -54,24 +52,24 @@ int main() {
 
   // Medium matrices
   {
-    constexpr long M = 96, N = 96, K = 96;
+    constexpr long M = 216, N = 216, K = 216;
     std::vector<double> A(M * K), B(K * N), C(M * N);
 
-    initialize_matrix(A, M * K, gen);
-    initialize_matrix(B, K * N, gen);
+    initialize_matrix(A, gen);
+    initialize_matrix(B, gen);
 
     Bench bench;
-    bench.title("Matrix Multiplication 96x96x96")
+    bench.title("Matrix Multiplication 216x216x216")
         .unit("matrix")
         .warmup(5)
         .epochIterations(50);
 
-    bench.run("naive_matmul", [&] {
+    bench.minEpochIterations(1000).run("naive_matmul", [&] {
       naive_matmul(C.data(), A.data(), B.data(), M, N, K);
       doNotOptimizeAway(C);
     });
 
-    bench.run("optimized_matmul", [&] {
+    bench.minEpochIterations(1000).run("optimized_matmul", [&] {
       matmul(C.data(), A.data(), B.data(), M, N, K);
       doNotOptimizeAway(C);
     });
@@ -82,8 +80,8 @@ int main() {
     constexpr long M = 144, N = 144, K = 144;
     std::vector<double> A(M * K), B(K * N), C(M * N);
 
-    initialize_matrix(A, M * K, gen);
-    initialize_matrix(B, K * N, gen);
+    initialize_matrix(A, gen);
+    initialize_matrix(B, gen);
 
     Bench bench;
     bench.title("Matrix Multiplication 144x144x144")
@@ -91,12 +89,12 @@ int main() {
         .warmup(3)
         .epochIterations(20);
 
-    bench.run("naive_matmul", [&] {
+    bench.minEpochIterations(1000).run("naive_matmul", [&] {
       naive_matmul(C.data(), A.data(), B.data(), M, N, K);
       doNotOptimizeAway(C);
     });
 
-    bench.run("optimized_matmul", [&] {
+    bench.minEpochIterations(1000).run("optimized_matmul", [&] {
       matmul(C.data(), A.data(), B.data(), M, N, K);
       doNotOptimizeAway(C);
     });
@@ -104,24 +102,24 @@ int main() {
 
   // Rectangular matrices
   {
-    constexpr long M = 144, N = 48, K = 96;
+    constexpr long M = 144, N = 72, K = 216;
     std::vector<double> A(M * K), B(K * N), C(M * N);
 
-    initialize_matrix(A, M * K, gen);
-    initialize_matrix(B, K * N, gen);
+    initialize_matrix(A, gen);
+    initialize_matrix(B, gen);
 
     Bench bench;
-    bench.title("Matrix Multiplication 144x48x96 (rectangular)")
+    bench.title("Matrix Multiplication 144x72x216 (rectangular)")
         .unit("matrix")
         .warmup(5)
         .epochIterations(30);
 
-    bench.run("naive_matmul", [&] {
+    bench.minEpochIterations(1000).run("naive_matmul", [&] {
       naive_matmul(C.data(), A.data(), B.data(), M, N, K);
       doNotOptimizeAway(C);
     });
 
-    bench.run("optimized_matmul", [&] {
+    bench.minEpochIterations(1000).run("optimized_matmul", [&] {
       matmul(C.data(), A.data(), B.data(), M, N, K);
       doNotOptimizeAway(C);
     });

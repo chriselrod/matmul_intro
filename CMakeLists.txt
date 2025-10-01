@@ -1,7 +1,4 @@
 cmake_minimum_required(VERSION 4.0.2 FATAL_ERROR)
-cmake_policy(SET CMP0167 NEW) # new find boost
-# Dependencies; Boost:
-find_package(Boost 1.81.0 REQUIRED COMPONENTS headers)
 
 option(ENABLE_LLD "Use LLD? Off by default." OFF)
 option(USE_MI_MALLOC "Use MI_MALLOC if available." ON)
@@ -16,17 +13,23 @@ set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD
     # `Help/dev/experimental.rst` in the CMake source corresponding to
     # your CMake build for the exact value to use.
     "d0edc3af-4c50-42ea-a356-e2862fe7a444")
-
+if(APPLE)
+  add_compile_options(
+    "$<$<COMPILE_LANGUAGE:CXX>:-nostdinc++;-nostdlib++;-isystem;/opt/homebrew/opt/llvm/include/c++/v1>"
+  )
+  add_link_options(
+    "$<$<COMPILE_LANGUAGE:CXX>:-L/opt/homebrew/opt/llvm/lib/c++;-Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++;-lc++>"
+  )
+endif()
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED YES)
+set(CMAKE_CXX_MODULE_STD ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 project(
   Matmul
   VERSION 1.0
   LANGUAGES CXX)
-
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED YES)
-set(CMAKE_CXX_MODULE_STD ON)
 
 if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
   message(
@@ -65,7 +68,12 @@ target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   target_compile_options(
-    ${PROJECT_NAME} PRIVATE -ferror-limit=8 -fcolor-diagnostics -ftime-trace)
+    ${PROJECT_NAME} PRIVATE -ferror-limit=8 -fcolor-diagnostics -ftime-trace -save-temps)
+  if(CMAKE_SYSTEM_PROCESSOR MATCHES "(x86)|(X86)|(amd64)|(AMD64)|(i386)")
+    target_compile_options(${PROJECT_NAME} PRIVATE -masm=intel)
+
+  endif()
+
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
   target_compile_options(
     ${PROJECT_NAME}

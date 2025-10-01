@@ -44,7 +44,7 @@ int main() {
 
   "48x48x48 matrix multiplication"_test = [] {
     std::mt19937 gen(42);
-    constexpr long M = 48, N = 48, K = 48;
+    constexpr long M = 72, N = 72, K = 72;
 
     std::vector<double> A(M * K), B(K * N), C_test(M * N), C_ref(M * N);
 
@@ -59,7 +59,7 @@ int main() {
 
   "96x96x96 matrix multiplication"_test = [] {
     std::mt19937 gen(123);
-    constexpr long M = 96, N = 96, K = 96;
+    constexpr long M = 144, N = 144, K = 144;
 
     std::vector<double> A(M * K), B(K * N), C_test(M * N), C_ref(M * N);
 
@@ -74,7 +74,7 @@ int main() {
 
   "144x48x96 rectangular matrix multiplication"_test = [] {
     std::mt19937 gen(456);
-    constexpr long M = 144, N = 48, K = 96;
+    constexpr long M = 144, N =72, K = 144;
 
     std::vector<double> A(M * K), B(K * N), C_test(M * N), C_ref(M * N);
 
@@ -89,7 +89,7 @@ int main() {
 
   "48x144x96 rectangular matrix multiplication"_test = [] {
     std::mt19937 gen(789);
-    constexpr long M = 48, N = 144, K = 96;
+    constexpr long M = 72, N = 144, K = 72;
 
     std::vector<double> A(M * K), B(K * N), C_test(M * N), C_ref(M * N);
 

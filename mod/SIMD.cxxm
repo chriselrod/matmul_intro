@@ -20,14 +20,13 @@ inline constexpr long VECTORWIDTH = 16;
 #endif // __x86_64__
 
 template <typename T, long W = VECTORWIDTH / sizeof(T)>
-using Vec = T [[clang::ext_vector_type(W)]];
+using Vec = T __attribute__((ext_vector_type(W)));
 
 template <typename T, long W = VECTORWIDTH / sizeof(T)>
 constexpr auto load(const T *p) -> Vec<T, W> {
-  return *reinterpret_cast<Vec<T, W> *>(p);
+  return *reinterpret_cast<const Vec<T, W> *>(p);
 }
-template <typename T, long W>
-constexpr void store(const T *p, Vec<T, W> v) {
+template <typename T, long W> constexpr void store(T *p, Vec<T, W> v) {
   *reinterpret_cast<Vec<T, W> *>(p) = v;
 }
 
