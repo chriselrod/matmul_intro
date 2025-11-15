@@ -15,11 +15,11 @@ template <typename T, std::size_t W>
       half[i] = x[i * 2] + x[i * 2 + 1];
     }
     return reduce(half);
-  }
+  } else
   return x[0] + x[1];
 }
 export auto sum_vector(const std::vector<float> &vec) {
-  constexpr int unrolled_size = 16;
+  constexpr int unrolled_size = 8;
   auto sum_arr = std::array<simd::Vec<float>, unrolled_size>{};
   constexpr int simd_vec_size = simd::VECTORWIDTH / sizeof(float);
   for (int inx = 0; inx < vec.size(); inx += simd_vec_size * unrolled_size) {
