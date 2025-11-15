@@ -28,13 +28,13 @@ auto sum_clang_vectorized(const std::vector<float> &vec) {
 int main() {
   std::mt19937 gen(42); // Fixed seed for reproducibility
 
-  // Small matrices for initial comparison
+  // Small vectors for initial comparison
   {
-    constexpr int M = 10000;
+    constexpr int M = 512;
     std::vector<float> V = initialize_vec(M, gen);
 
     Bench bench;
-    bench.title("Summation M=1000").unit("sum").warmup(10).epochIterations(100);
+    bench.title("Summation M=1000").unit("sum").warmup(1024).epochIterations(4096);
 
     auto my_sum = sum_vector(V);
     std::print("Diffs: Hand-optimized - Clang-Vectorized: {}\n",
