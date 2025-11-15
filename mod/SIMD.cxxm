@@ -31,7 +31,7 @@ template <typename T, long W> constexpr void store(T *p, Vec<T, W> v) {
 }
 
 template <typename T, long W> struct SIMDPair {
-  Vec<T, W> x_, y_;
+  Vec<T, W> lo_, hi_;
 };
 template <typename T, long W>
 [[gnu::always_inline]] constexpr auto split(Vec<T, W> x) -> SIMDPair<T, W / 2> {
@@ -52,11 +52,11 @@ template <typename T, long W>
 
 template <typename T, long W>
 [[gnu::always_inline]] constexpr auto sum(Vec<T, W> x) -> T {
-  SIMDPair<T, W / 2> s = split(x);
-  if constexpr (W == 2)
-    return s.x_ + s.y_;
-  else
-    return sum(s.x_ + s.y_);
+  if constexpr (W > 2) {
+    SIMDPair<T, W / 2> s = split(x);
+    return sum(s.lo_ + s.hi_);
+  } else
+    return x[0] + x[1];
 }
 
 } // namespace simd
