@@ -30,4 +30,33 @@ template <typename T, long W> constexpr void store(T *p, Vec<T, W> v) {
   *reinterpret_cast<Vec<T, W> *>(p) = v;
 }
 
+template <typename T, long W> struct SIMDPair {
+  Vec<T, W> x_, y_;
+};
+template <typename T, long W>
+[[gnu::always_inline]] constexpr auto split(Vec<T, W> x) -> SIMDPair<T, W / 2> {
+  if constexpr (W == 2) {
+    return {x[0], x[1]};
+  } else if constexpr (W == 4) {
+    return {__builtin_shufflevector(x, x, 0, 1),
+            __builtin_shufflevector(x, x, 2, 3)};
+  } else if constexpr (W == 8) {
+    return {__builtin_shufflevector(x, x, 0, 1, 2, 3),
+            __builtin_shufflevector(x, x, 4, 5, 6, 7)};
+  } else if constexpr (W == 16) {
+    return {__builtin_shufflevector(x, x, 0, 1, 2, 3, 4, 5, 6, 7),
+            __builtin_shufflevector(x, x, 8, 9, 10, 11, 12, 13, 14, 15)};
+  }
+  static_assert(false, "unsupported");
+}
+
+template <typename T, long W>
+[[gnu::always_inline]] constexpr auto sum(Vec<T, W> x) -> T {
+  SIMDPair<T, W / 2> s = split(x);
+  if constexpr (W == 2)
+    return s.x_ + s.y_;
+  else
+    return sum(s.x_ + s.y_);
+}
+
 } // namespace simd
