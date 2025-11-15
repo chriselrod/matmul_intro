@@ -7,8 +7,12 @@ import SIMD;
 import std;
 
 export auto sum_vector(const std::vector<float> &vec) {
-  float sum = 0.0;
-  for (auto x : vec)
-    sum += x;
+  auto sum_vec = simd::Vec<float>{};
+  int simd_vec_size = simd::VECTORWIDTH/sizeof(float);
+  for (int inx = 0; inx < vec.size(); inx += simd_vec_size){
+    auto simd_vec = simd::load(&vec[inx]);
+    sum_vec += simd_vec;
+  }
+  float sum = simd::sum(sum_vec);
   return sum;
 }
