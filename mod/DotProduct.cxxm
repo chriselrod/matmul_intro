@@ -1,0 +1,25 @@
+module;
+
+#include "LoopMacros.hxx"
+
+export module DotProduct;
+import SIMD;
+import std;
+
+export auto dot_product_vector(const std::vector<float> &vec1,
+                       const std::vector<float> &vec2) {
+  if (vec1.size() != vec2.size()) __builtin_trap();
+  constexpr int unrolled_size = 8;
+  auto sum_arr = std::array<simd::Vec<float>, unrolled_size>{};
+  constexpr int simd_vec_size = simd::VECTORWIDTH / sizeof(float);
+  for (int inx = 0; inx < vec1.size(); inx += simd_vec_size * unrolled_size) {
+    POLYMATHFULLUNROLL
+    for (int u_i = 0; u_i < unrolled_size; u_i++) {
+      auto simd_vec1 = simd::load(&vec1[inx + simd_vec_size * u_i]);
+      auto simd_vec2 = simd::load(&vec2[inx + simd_vec_size * u_i]);
+      sum_arr[u_i] += (simd_vec1 * simd_vec2);
+    }
+  }
+  auto sum_vec = simd::reduce<simd::Vec<float>, unrolled_size>(sum_arr);
+  return simd::sum(sum_vec);
+}

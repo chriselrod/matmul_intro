@@ -1,4 +1,5 @@
 export module SIMD;
+import std;
 
 export namespace simd {
 
@@ -57,6 +58,18 @@ template <typename T, long W>
     return sum(s.lo_ + s.hi_);
   } else
     return x[0] + x[1];
+}
+template <typename T, std::size_t W>
+[[gnu::always_inline]] constexpr auto reduce(const std::array<T, W> &x) -> T {
+  static_assert((W & 1) == 0, "only even num of elements  accepted");
+  if constexpr (W > 2) {
+    std::array<T, W / 2> half;
+    for (int i = 0; i < W / 2; i++) {
+      half[i] = x[i * 2] + x[i * 2 + 1];
+    }
+    return reduce(half);
+  } else
+  return x[0] + x[1];
 }
 
 } // namespace simd

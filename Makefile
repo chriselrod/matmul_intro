@@ -13,6 +13,10 @@ sum_bench: build/bench/
 	cmake --build build/bench/
 	build/bench/sum_bench
 
+dot_product_bench: build/bench/
+	cmake --build build/bench/
+	build/bench/dot_product_bench
+
 matmul_bench: build/bench/
 	cmake --build build/bench/
 	build/bench/matmul_bench

@@ -1,0 +1,104 @@
+[
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/opt/homebrew/opt/llvm/lib/c++/../../share/libc++/v1 -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -Wno-reserved-module-identifier @CMakeFiles/__cmake_cxx23.dir/opt/homebrew/opt/llvm/share/libc++/v1/std.cppm.o.modmap -o CMakeFiles/__cmake_cxx23.dir/opt/homebrew/opt/llvm/share/libc++/v1/std.cppm.o -c /opt/homebrew/opt/llvm/share/libc++/v1/std.cppm",
+  "file": "/opt/homebrew/opt/llvm/share/libc++/v1/std.cppm",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/__cmake_cxx23.dir/opt/homebrew/opt/llvm/share/libc++/v1/std.cppm.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/opt/homebrew/opt/llvm/lib/c++/../../share/libc++/v1 -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -Wno-reserved-module-identifier @CMakeFiles/__cmake_cxx23.dir/opt/homebrew/opt/llvm/share/libc++/v1/std.compat.cppm.o.modmap -o CMakeFiles/__cmake_cxx23.dir/opt/homebrew/opt/llvm/share/libc++/v1/std.compat.cppm.o -c /opt/homebrew/opt/llvm/share/libc++/v1/std.compat.cppm",
+  "file": "/opt/homebrew/opt/llvm/share/libc++/v1/std.compat.cppm",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/__cmake_cxx23.dir/opt/homebrew/opt/llvm/share/libc++/v1/std.compat.cppm.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/opt/homebrew/opt/llvm/lib/c++/../../share/libc++/v1 -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++26 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -Wno-reserved-module-identifier @CMakeFiles/__cmake_cxx26.dir/opt/homebrew/opt/llvm/share/libc++/v1/std.cppm.o.modmap -o CMakeFiles/__cmake_cxx26.dir/opt/homebrew/opt/llvm/share/libc++/v1/std.cppm.o -c /opt/homebrew/opt/llvm/share/libc++/v1/std.cppm",
+  "file": "/opt/homebrew/opt/llvm/share/libc++/v1/std.cppm",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/__cmake_cxx26.dir/opt/homebrew/opt/llvm/share/libc++/v1/std.cppm.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/opt/homebrew/opt/llvm/lib/c++/../../share/libc++/v1 -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++26 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -Wno-reserved-module-identifier @CMakeFiles/__cmake_cxx26.dir/opt/homebrew/opt/llvm/share/libc++/v1/std.compat.cppm.o.modmap -o CMakeFiles/__cmake_cxx26.dir/opt/homebrew/opt/llvm/share/libc++/v1/std.compat.cppm.o -c /opt/homebrew/opt/llvm/share/libc++/v1/std.compat.cppm",
+  "file": "/opt/homebrew/opt/llvm/share/libc++/v1/std.compat.cppm",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/__cmake_cxx26.dir/opt/homebrew/opt/llvm/share/libc++/v1/std.compat.cppm.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/vuoanh/Documents/matmul_intro/include -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -ferror-limit=8 -fcolor-diagnostics -ftime-trace -save-temps -Wshadow -Werror @CMakeFiles/Matmul.dir/mod/DotProduct.cxxm.o.modmap -o CMakeFiles/Matmul.dir/mod/DotProduct.cxxm.o -c /Users/vuoanh/Documents/matmul_intro/mod/DotProduct.cxxm",
+  "file": "/Users/vuoanh/Documents/matmul_intro/mod/DotProduct.cxxm",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/Matmul.dir/mod/DotProduct.cxxm.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/vuoanh/Documents/matmul_intro/include -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -ferror-limit=8 -fcolor-diagnostics -ftime-trace -save-temps -Wshadow -Werror @CMakeFiles/Matmul.dir/mod/MatMul.cxxm.o.modmap -o CMakeFiles/Matmul.dir/mod/MatMul.cxxm.o -c /Users/vuoanh/Documents/matmul_intro/mod/MatMul.cxxm",
+  "file": "/Users/vuoanh/Documents/matmul_intro/mod/MatMul.cxxm",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/Matmul.dir/mod/MatMul.cxxm.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/vuoanh/Documents/matmul_intro/include -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -ferror-limit=8 -fcolor-diagnostics -ftime-trace -save-temps -Wshadow -Werror @CMakeFiles/Matmul.dir/mod/SIMD.cxxm.o.modmap -o CMakeFiles/Matmul.dir/mod/SIMD.cxxm.o -c /Users/vuoanh/Documents/matmul_intro/mod/SIMD.cxxm",
+  "file": "/Users/vuoanh/Documents/matmul_intro/mod/SIMD.cxxm",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/Matmul.dir/mod/SIMD.cxxm.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/vuoanh/Documents/matmul_intro/include -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -ferror-limit=8 -fcolor-diagnostics -ftime-trace -save-temps -Wshadow -Werror @CMakeFiles/Matmul.dir/mod/Sum.cxxm.o.modmap -o CMakeFiles/Matmul.dir/mod/Sum.cxxm.o -c /Users/vuoanh/Documents/matmul_intro/mod/Sum.cxxm",
+  "file": "/Users/vuoanh/Documents/matmul_intro/mod/Sum.cxxm",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/Matmul.dir/mod/Sum.cxxm.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/vuoanh/Documents/matmul_intro -I/Users/vuoanh/Documents/matmul_intro/include -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -Wall -Wpedantic -Wextra -Wshadow -Werror -ferror-limit=8 -fcolor-diagnostics -ftime-trace -D_GLIBCXX_ASSERTIONS -ftemplate-backtrace-limit=0 @CMakeFiles/test_matmul.dir/test/test_matmul.cpp.o.modmap -o CMakeFiles/test_matmul.dir/test/test_matmul.cpp.o -c /Users/vuoanh/Documents/matmul_intro/test/test_matmul.cpp",
+  "file": "/Users/vuoanh/Documents/matmul_intro/test/test_matmul.cpp",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/test_matmul.dir/test/test_matmul.cpp.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/vuoanh/Documents/matmul_intro -I/Users/vuoanh/Documents/matmul_intro/include -I/Users/vuoanh/Documents/matmul_intro/build/bench/_deps/nanobench-src/src/include -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -flto=thin -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -O3 -march=native -DNDEBUG -ferror-limit=8 -fcolor-diagnostics -Wshadow -Werror @CMakeFiles/dot_bench.dir/bench/dot_bench.cpp.o.modmap -o CMakeFiles/dot_bench.dir/bench/dot_bench.cpp.o -c /Users/vuoanh/Documents/matmul_intro/bench/dot_bench.cpp",
+  "file": "/Users/vuoanh/Documents/matmul_intro/bench/dot_bench.cpp",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/dot_bench.dir/bench/dot_bench.cpp.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/vuoanh/Documents/matmul_intro -I/Users/vuoanh/Documents/matmul_intro/include -I/Users/vuoanh/Documents/matmul_intro/build/bench/_deps/nanobench-src/src/include -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -flto=thin -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -O3 -march=native -DNDEBUG -ferror-limit=8 -fcolor-diagnostics -Wshadow -Werror @CMakeFiles/dot_bench.dir/bench/Nanobench.cxxm.o.modmap -o CMakeFiles/dot_bench.dir/bench/Nanobench.cxxm.o -c /Users/vuoanh/Documents/matmul_intro/bench/Nanobench.cxxm",
+  "file": "/Users/vuoanh/Documents/matmul_intro/bench/Nanobench.cxxm",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/dot_bench.dir/bench/Nanobench.cxxm.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/vuoanh/Documents/matmul_intro -I/Users/vuoanh/Documents/matmul_intro/include -I/Users/vuoanh/Documents/matmul_intro/build/bench/_deps/nanobench-src/src/include -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -flto=thin -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -O3 -march=native -DNDEBUG -ferror-limit=8 -fcolor-diagnostics -Wshadow -Werror @CMakeFiles/matmul_bench.dir/bench/matmul_bench.cpp.o.modmap -o CMakeFiles/matmul_bench.dir/bench/matmul_bench.cpp.o -c /Users/vuoanh/Documents/matmul_intro/bench/matmul_bench.cpp",
+  "file": "/Users/vuoanh/Documents/matmul_intro/bench/matmul_bench.cpp",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/matmul_bench.dir/bench/matmul_bench.cpp.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/vuoanh/Documents/matmul_intro -I/Users/vuoanh/Documents/matmul_intro/include -I/Users/vuoanh/Documents/matmul_intro/build/bench/_deps/nanobench-src/src/include -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -flto=thin -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -O3 -march=native -DNDEBUG -ferror-limit=8 -fcolor-diagnostics -Wshadow -Werror @CMakeFiles/matmul_bench.dir/bench/Nanobench.cxxm.o.modmap -o CMakeFiles/matmul_bench.dir/bench/Nanobench.cxxm.o -c /Users/vuoanh/Documents/matmul_intro/bench/Nanobench.cxxm",
+  "file": "/Users/vuoanh/Documents/matmul_intro/bench/Nanobench.cxxm",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/matmul_bench.dir/bench/Nanobench.cxxm.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/vuoanh/Documents/matmul_intro -I/Users/vuoanh/Documents/matmul_intro/include -I/Users/vuoanh/Documents/matmul_intro/build/bench/_deps/nanobench-src/src/include -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -flto=thin -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -O3 -march=native -DNDEBUG -ferror-limit=8 -fcolor-diagnostics -Wshadow -Werror @CMakeFiles/sum_bench.dir/bench/sum_bench.cpp.o.modmap -o CMakeFiles/sum_bench.dir/bench/sum_bench.cpp.o -c /Users/vuoanh/Documents/matmul_intro/bench/sum_bench.cpp",
+  "file": "/Users/vuoanh/Documents/matmul_intro/bench/sum_bench.cpp",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/sum_bench.dir/bench/sum_bench.cpp.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/vuoanh/Documents/matmul_intro -I/Users/vuoanh/Documents/matmul_intro/include -I/Users/vuoanh/Documents/matmul_intro/build/bench/_deps/nanobench-src/src/include -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -flto=thin -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fvisibility=hidden -fvisibility-inlines-hidden -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -O3 -march=native -DNDEBUG -ferror-limit=8 -fcolor-diagnostics -Wshadow -Werror @CMakeFiles/sum_bench.dir/bench/Nanobench.cxxm.o.modmap -o CMakeFiles/sum_bench.dir/bench/Nanobench.cxxm.o -c /Users/vuoanh/Documents/matmul_intro/bench/Nanobench.cxxm",
+  "file": "/Users/vuoanh/Documents/matmul_intro/bench/Nanobench.cxxm",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/CMakeFiles/sum_bench.dir/bench/Nanobench.cxxm.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++23 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 @extern_build/ut/CMakeFiles/ut_module.dir/include/boost/ut.cppm.o.modmap -o extern_build/ut/CMakeFiles/ut_module.dir/include/boost/ut.cppm.o -c /Users/vuoanh/Documents/matmul_intro/extern/ut/include/boost/ut.cppm",
+  "file": "/Users/vuoanh/Documents/matmul_intro/extern/ut/include/boost/ut.cppm",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/extern_build/ut/CMakeFiles/ut_module.dir/include/boost/ut.cppm.o"
+},
+{
+  "directory": "/Users/vuoanh/Documents/matmul_intro/build/bench",
+  "command": "/opt/homebrew/opt/llvm/bin/clang++ -I/Users/vuoanh/Documents/matmul_intro/build/bench/_deps/nanobench-src/src/include -stdlib=libc++ -march=native -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fno-exceptions -fno-rtti -nostdinc++ -nostdlib++ -isystem /opt/homebrew/opt/llvm/include/c++/v1 -o _deps/nanobench-build/CMakeFiles/nanobench.dir/src/test/app/nanobench.cpp.o -c /Users/vuoanh/Documents/matmul_intro/build/bench/_deps/nanobench-src/src/test/app/nanobench.cpp",
+  "file": "/Users/vuoanh/Documents/matmul_intro/build/bench/_deps/nanobench-src/src/test/app/nanobench.cpp",
+  "output": "/Users/vuoanh/Documents/matmul_intro/build/bench/_deps/nanobench-build/CMakeFiles/nanobench.dir/src/test/app/nanobench.cpp.o"
+}
+]
