@@ -1,0 +1,46 @@
+module;
+
+#include "LoopMacros.hxx"
+
+export module MatrixVector;
+import SIMD;
+import std;
+
+/// mat * vec -> out
+export void matrix_vector(const std::vector<float> &mat,
+                          const std::vector<float> &vec,
+                          std::vector<float> &out) {
+  std::ptrdiff_t rows = out.size(), cols = vec.size();
+  if (mat.size() != rows * cols)
+    __builtin_trap();
+  // the numer of unrolled iteration
+  constexpr int r_iter_num = simd::UNROLLEDNUM;
+  constexpr int c_iter_num = 1;
+  // size of SIMD vector instruction
+  constexpr int simd_vec_size = simd::SIMDVECSIZE<float>;
+  // iterate through rows of the matrix
+  for (std::ptrdiff_t row = 0; row < rows; row += r_iter_num) {
+    // a matrix of rows * c_iter_num that holds the inner
+    // products of SIMD vectors
+    auto sum_array =
+        std::array<std::array<simd::Vec<float>, c_iter_num>, r_iter_num>{};
+    for (std::ptrdiff_t col = 0; col < cols;
+         col += c_iter_num * simd_vec_size) {
+      POLYMATHFULLUNROLL
+      for (std::ptrdiff_t r_i = 0; r_i < r_iter_num; ++r_i) {
+        POLYMATHFULLUNROLL
+        for (std::ptrdiff_t c_i = 0; c_i < c_iter_num; ++c_i) {
+          auto crow = row + r_i;
+          auto ccol = col + simd_vec_size * c_i;
+          auto simd_vec1 = simd::load(&vec[ccol]);
+          auto simd_vec2 = simd::load(&mat[crow * cols + ccol]);
+          sum_array[r_i][c_i] += (simd_vec1 * simd_vec2);
+        }
+      }
+    }
+    for (std::ptrdiff_t inx = 0; inx < r_iter_num; ++inx) {
+      auto sum_vec = simd::reduce(sum_array[inx]);
+      out[row + inx] += simd::sum(sum_vec);
+    }
+  }
+}

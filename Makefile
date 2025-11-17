@@ -21,4 +21,7 @@ matmul_bench: build/bench/
 	cmake --build build/bench/
 	build/bench/matmul_bench
 
+matrix_vector_bench: build/bench/
+	cmake --build build/bench/
+	build/bench/matrix_vector_bench
 

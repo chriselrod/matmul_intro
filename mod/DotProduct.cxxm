@@ -20,6 +20,6 @@ export auto dot_product_vector(const std::vector<float> &vec1,
       sum_arr[u_i] += (simd_vec1 * simd_vec2);
     }
   }
-  auto sum_vec = simd::reduce<simd::Vec<float>, unrolled_size>(sum_arr);
+  auto sum_vec = simd::reduce(sum_arr);
   return simd::sum(sum_vec);
 }

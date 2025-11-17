@@ -15,15 +15,20 @@ inline constexpr long VECTORWIDTH = 32;
 inline constexpr long VECTORWIDTH = 16;
 #endif // no AVX
 #endif
+inline constexpr long UNROLLEDNUM = 8;
 #else  // not __x86_64__
 inline constexpr long REGISTERS = 32;
 inline constexpr long VECTORWIDTH = 16;
+inline constexpr long UNROLLEDNUM = 16;
 #endif // __x86_64__
 
-template <typename T, long W = VECTORWIDTH / sizeof(T)>
+template <typename T>
+inline constexpr long SIMDVECSIZE = VECTORWIDTH / sizeof(T);
+
+template <typename T, long W = SIMDVECSIZE<T>>
 using Vec = T __attribute__((ext_vector_type(W)));
 
-template <typename T, long W = VECTORWIDTH / sizeof(T)>
+template <typename T, long W = SIMDVECSIZE<T>>
 constexpr auto load(const T *p) -> Vec<T, W> {
   return *reinterpret_cast<const Vec<T, W> *>(p);
 }
@@ -61,15 +66,16 @@ template <typename T, long W>
 }
 template <typename T, std::size_t W>
 [[gnu::always_inline]] constexpr auto reduce(const std::array<T, W> &x) -> T {
-  static_assert((W & 1) == 0, "only even num of elements  accepted");
+  static_assert(std::popcount(W) == 1, "only even num of elements  accepted");
   if constexpr (W > 2) {
     std::array<T, W / 2> half;
     for (int i = 0; i < W / 2; i++) {
       half[i] = x[i * 2] + x[i * 2 + 1];
     }
     return reduce(half);
-  } else
-  return x[0] + x[1];
+  } else if (W ==2)
+    return x[0] + x[1];
+  else return x[0];
 }
 
 } // namespace simd
